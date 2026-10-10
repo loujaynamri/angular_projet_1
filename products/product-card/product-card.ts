@@ -12,6 +12,6 @@ import { required } from '@angular/forms/signals';
 })
 export class ProductCard {
   readonly product =input.required<Product>();
-  readonly addButtonLabel=input('Add to cart');
+  readonly addButtonLabel='Add to cart';
 
 }

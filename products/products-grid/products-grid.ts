@@ -28,6 +28,7 @@ export class ProductsGrid {
       name:'portable blutooth speaker',
       description:'compact speaker with powerfull bass and 12-hour battaery life',
       price:79.99,
+      originalPrice:99.99,
     }
 
   ]);
