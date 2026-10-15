@@ -11,11 +11,13 @@
   </p>
   <div class="products-grid">
     @for (product of filteredProducts(); track product.id) {
-        <app-product-card [product]="product" ></app-product-card>
+        <app-product-card [product]="product"
+        (addToCart)="onAddToCard($event)"
+        ></app-product-card>
     } @empty {
       <div class="empty-state">
         <mat-icon>inventory_2</mat-icon>
-        <h3>No products match your search</h3>
+        <p>No products match your search</p>
         <p>Check back later for new arrivals!</p>
       </div>
     }

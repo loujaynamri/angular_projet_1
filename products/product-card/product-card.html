@@ -23,8 +23,8 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button matButton>
-      {{addButtonLabel}}
+    <button matButton (click)="onAddToCard()">
+      {{addButtonLabel()}}
     </button>
   </mat-card-actions>
 

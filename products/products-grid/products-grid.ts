@@ -2,7 +2,6 @@ import { Product } from './../product';
 import { Component, computed, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { MatIcon } from '@angular/material/icon';
-import { single } from 'rxjs';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -46,11 +45,19 @@ export class ProductsGrid {
       product.description.toLocaleLowerCase().includes(term)
   );
   });
+  protected onAddToCard(Product:Product){
+    console.log('add to cart :' , Product.name);
+  }
 
-  protected clearSearch(){
-    this.searchTerm.set('');
-  }
-  protected trimSearch(){
-    this.searchTerm.update((value)=>value.trim());
-  }
+
+
+  //protected clearSearch(){
+    //this.searchTerm.set('');
+  //}
+  //protected trimSearch(){
+    //this.searchTerm.update((value)=>value.trim());
+  //}
+
+
+
 }

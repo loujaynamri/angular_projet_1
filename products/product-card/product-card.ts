@@ -1,9 +1,7 @@
-import { Component, input} from '@angular/core';
+import { Product } from './../product';
+import { Component, input, output} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { Product } from '../product';
-import { required } from '@angular/forms/signals';
-
 @Component({
   imports: [MatCardModule , MatButtonModule],
   selector: 'app-product-card',
@@ -12,6 +10,13 @@ import { required } from '@angular/forms/signals';
 })
 export class ProductCard {
   readonly product =input.required<Product>();
-  readonly addButtonLabel='Add to cart';
+  readonly addButtonLabel=input('Add to cart');
+
+  readonly  addToCart =output<Product>();
+
+  protected onAddToCard(){
+    this.addToCart.emit(this.product());
+  }
+
 
 }
