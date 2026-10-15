@@ -31,3 +31,11 @@ p{
   margin: 0;
   color: var(--mat-sys-on-surface-variant);
 }
+.search-filed{
+  display: block;
+  width: 100%;
+}
+.search-preview{
+  margin: 0;
+  color: var(--mat-sys-on-surface-variant);
+}

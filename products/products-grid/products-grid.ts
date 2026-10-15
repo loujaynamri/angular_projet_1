@@ -2,16 +2,21 @@ import { Product } from './../product';
 import { Component, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { MatIcon } from '@angular/material/icon';
-
+import { single } from 'rxjs';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @Component({
-  imports: [ProductCard,MatIcon],
+  imports: [ProductCard,MatIcon,MatInputModule,FormsModule,MatFormFieldModule],
   selector: 'app-products-grid',
   styleUrl: './products-grid.css',
   templateUrl: './products-grid.html',
 })
 export class ProductsGrid {
+  protected readonly searchTerm = signal('');
+
   protected readonly products =signal <Product[]>([
-{id:1,
+    {id:1,
     name:'premium wireless headphones',
     description:'high-quality wireless headphones with noise cancellation and premium sound effects',
     price:80.00,
@@ -32,4 +37,11 @@ export class ProductsGrid {
     }
 
   ]);
+
+  protected clearSearch(){
+    this.searchTerm.set('');
+  }
+  protected trimSearch(){
+    this.searchTerm.update((value)=>value.trim());
+  }
 }

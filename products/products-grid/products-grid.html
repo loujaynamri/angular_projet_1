@@ -1,9 +1,17 @@
 <div class="products-container">
   <p>Total products:{{products().length}}</p>
-
+<mat-form-field appearance="outline" class="search-fild">
+  <mat-label>
+    search product
+  </mat-label>
+  <input matInput [(ngModel)]="searchTerm" placeholder="e.g headphones" >
+</mat-form-field>
+  <p class="search-preview">
+    Search Term :{{searchTerm()}}
+  </p>
   <div class="products-grid">
     @for (product of products(); track product.id) {
-        <app-product-card [product]="product"></app-product-card>
+        <app-product-card [product]="product" ></app-product-card>
     } @empty {
       <div class="empty-state">
         <mat-icon>inventory_2</mat-icon>
